@@ -11,15 +11,19 @@ There will be a login and register button. If they have not registered they will
 The user will be able to create, edit and delete a blog post. The read functionality will be for all non-logged in and logged in users.
 
 ## Technologies
-- React & Express(or Rails)
+- React
+- Express(or Rails)
 - Postgresql
 - Models & Controllers
-- CRUD
-- Either Tumblr or Medium API (have not decided yet)(Actually debating if I need one. Confused on what a tumblr/medium API would do)
 - Authorization
 
-## Post MVP
+## MVP
+- CRUD
+- Auth
 - Comments
+- Styling
+
+## Post MVP
 - Likes
 - Reblog
 
@@ -35,7 +39,6 @@ The user will be able to create, edit and delete a blog post. The read functiona
 | Database | H | 5hrs | N/A | N/A |
 | Models & Controller | H | 10hrs | N/A | N/A |
 | CRUD functionality | H | 15hrs | N/A | N/A |
-| API(?) | H | 48hrs | N/A | N/A |
 | Styling | H | 72hrs | N/A | N/A |
 | Total |  | | N/A | N/A |
 
