@@ -1,5 +1,4 @@
-# blogception
-A blog spot where you can write until your hear is content.
+# Blogception
 
 ## Summary
 Blogception is a blogging site where you can write about your latest hobbies, interests or just life.
