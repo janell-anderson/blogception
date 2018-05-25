@@ -10,9 +10,19 @@ There will be a login and register button. If they have not registered they will
 
 The user will be able to create, edit and delete a blog post. The read functionality will be for all non-logged in and logged in users.
 
+### DAY 1 May 24th
+Brainstorming about what I will be doing for my project 4. Came up with doing a blog application. Decided on the core technologies that I will be using. For the front-end I will be using React.js. This is be one of the biggest challenges for me since my React skills are low. As for the backend I will be doing Node.js and Express.js. I feel more comfortable with Express and since we only learned Rails for three days I do not want to spend most of my project time on Rails.
+
+- WORKFLOW LIST
+ - Setup React app and Express application (COMPLETED)
+ - Setup server (COMPLETED)
+ - create Database (IN PROCESS)
+ - create tables (IN PROCESS)
+- COMPLETED 2/5
+
 ## Technologies
 - React
-- Express(or Rails)
+- Express
 - Postgresql
 - Models & Controllers
 - Authorization
@@ -20,12 +30,12 @@ The user will be able to create, edit and delete a blog post. The read functiona
 ## MVP
 - CRUD
 - Auth
-- Comments
+- Reblog
 - Styling
 
 ## Post MVP
+- Comments
 - Likes
-- Reblog
 
 ## Wireframe
 <img src="IMG_6006.jpg" alt="wireframe" />
@@ -43,3 +53,5 @@ The user will be able to create, edit and delete a blog post. The read functiona
 | Total |  | | N/A | N/A |
 
 ## Obstacles
+
+

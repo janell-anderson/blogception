@@ -4,6 +4,6 @@ const config = require('./dbConfig');
 
 const db = pgp(process.env.DATABASE_URL || config);
 
-const.log(db);
+console.log(db);
 
 module.exports = db;
