@@ -19,20 +19,19 @@ Brainstorming about what I will be doing for my project 4. Came up with doing a 
     - create database (COMPLETED)
     - create tables (COMPLETED)
     - Have CRUD working on back-end (COMPLETED)
-- COMPLETED 6/6
 
 ### DAY 2 May 25th
+Today was also a slow day. Tried to do front-end crud and create a form but was too flustered. I instead I started on the back-end authorization. I was able to complete registering and logging in using Postman. I then tackled front-end again. I decided to go with the register and log in forms. I will get to the crud part after I complete those forms. I will check them once I'm done with the front-end crud.
 - WORKFLOW LIST
-    - Start on front-end CRUD
-    - Create a blog post form
-    - Do some basic React styling
-    - Do a little bit of CSS
-    - Start on Authorization (Login/Register/Tokens)
-- COMPLETED 0/5 
+    - Start on Authorization (Login/Register/Tokens) (COMPLETED)
+    - Created some forms preferably the register form.
 
 ### DAY 3-5 May 26th - 28th
 - WORKFLOW LIST
-- COMPLETED 0/0
+    - Continue working on authorization forms on front-end
+    - Try to complete front-end CRUD
+        - POST WORKFLOW
+            - If I successfully tackled everything above I will tackle logic for logged in users to be the only ones to create, edit and delete blog posts.
 
 ## Technologies
 - React

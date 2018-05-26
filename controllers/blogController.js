@@ -1,7 +1,7 @@
-const Blog = require('../models/blog');
+const blogDb = require('../models/blog');
 
 function getAll(req, res, next) {
-  Blog.getAll()
+  blogDb.getAll()
     .then(data => {
       res.locals.posts = data;
       next();
@@ -9,7 +9,7 @@ function getAll(req, res, next) {
 }
 
 function getOne(req, res, next) {
-  Blog.getOne(req.params.id)
+  blogDb.getOne(req.params.id)
     .then(data => {
       res.locals.posts = data;
       next();
@@ -17,7 +17,7 @@ function getOne(req, res, next) {
 }
 
 function create(req, res, next) {
-  Blog.create(req.body)
+  blogDb.create(req.body)
     .then(data => {
       res.locals.posts = data
       console.log(res.locals.posts);
@@ -26,14 +26,14 @@ function create(req, res, next) {
 }
 
 function destroy(req, res, next) {
-  Blog.destroy(req.params.id)
+  blogDb.destroy(req.params.id)
     .then(data => {
       next();
     }).catch(next);
 }
 
 function update(req, res, next) {
-  Blog.update(req.body)
+  blogDb.update(req.body)
     .then(data => {
       res.locals.posts = data;
       next();

@@ -1,20 +1,22 @@
-const blogRouter = require('express').Router();
+const blog = require('express').Router();
 const blogController = require('../controllers/blogController');
 const respController = require('../controllers/responseController');
 
-blogRouter.route('/')
+// initial route to get all
+blog.route('/')
   .get(
       blogController.getAll,
       respController.sendOkResp,
       respController.sendErrResp);
 
-blogRouter.route('/new')
+// the route for the blog form
+blog.route('/new')
   .post(
     blogController.create,
     respController.sendOkResp,
     respController.sendErrResp);
 
-blogRouter.route('/:id')
+blog.route('/:id')
   .get(
     blogController.getOne,
     respController.sendOkResp,
@@ -30,5 +32,5 @@ blogRouter.route('/:id')
     respController.sendOkResp,
     respController.sendErrResp);
 
-  module.exports = blogRouter;
+  module.exports = blog;
 
