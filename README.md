@@ -59,9 +59,10 @@ Today was also a slow day. Tried to do front-end crud and create a form but was 
 ## Time Management
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Database | H | 5hrs | N/A | N/A |
-| Models & Controller | H | 10hrs | N/A | N/A |
-| CRUD functionality | H | 15hrs | N/A | N/A |
+| Database | H | 5hrs | 6hrs | N/A |
+| Models & Controller | H | 5hrs | 3hrs | N/A |
+| CRUD functionality Back-end | H | 9hrs | 3hrs | N/A |
+| CRUD functionality Front-end | H | 15hrs | N/A | N/A |
 | Styling | H | 72hrs | N/A | N/A |
 | Total |  | | N/A | N/A |
 
