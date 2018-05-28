@@ -8,9 +8,7 @@ export default class EditBlog extends Component {
       <div>
         <h1>Edit Blog # {this.props.blog.id}</h1>
         <BlogForm
-          title={this.props.blog}
-          id='edit'
-          func={this.props.onSubmit}
+
         />
       </div>
     )
