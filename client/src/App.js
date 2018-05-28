@@ -7,6 +7,7 @@ import Nav from './components/Header';
 import Home from './components/Home';
 import Blogs from './components/Blogs';
 import Blog from './components/Blog';
+import EditBlog from './components/EditBlog';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import CreateBlog from './components/CreateBlog';
@@ -18,6 +19,7 @@ export default class App extends Component {
       blogs: [],
       currentUser: null
     }
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
   }
@@ -64,7 +66,7 @@ export default class App extends Component {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
-        'content-type': 'application'
+        'Content-Type': 'application'
       },
       body: JSON.stringify(blog)
     };
@@ -192,6 +194,13 @@ export default class App extends Component {
           component={() => (
             <CreateBlog
               onSubmit={this.createBlog.bind(this)}
+            /> )} />
+
+          <Route exact path='/api/blogs/:id/edit' component={(props) => (
+            <EditBlog
+              {...props}
+              blog={this.findBlog(props.match.params.id)}
+              onSubmit={this.updateBlog.bind(this)}
             /> )} />
 
           <Route exact path='/api/auth/login' component={(props) => (

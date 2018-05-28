@@ -29,6 +29,7 @@ export default class BlogForm extends Component {
   }
 
   render() {
+    console.log(this.state.blog);
     const { title, text, img_url, id} = this.state.blog
     return (
       <div>
