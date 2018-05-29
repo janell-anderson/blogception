@@ -34,7 +34,7 @@ function register(req, res) {
       res.json({
         token
       })
-    });
+  });
 }
 
 function login(req, res, next) {

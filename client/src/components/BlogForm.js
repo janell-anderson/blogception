@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class BlogForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirectHome: false,
       blog: Object.assign({
         title: '',
         text: '',
@@ -26,16 +28,20 @@ export default class BlogForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.func(this.state.blog);
-    // window.locatioin.reload();
+    window.location.reload();
+    this.setState({
+      redirectHome: true
+    });
   }
 
   render() {
     console.log(this.state.blog);
-    const { title, text, img_url, id} = this.state.blog
+    const { title, text, img_url} = this.state.blog
     return (
       <div>
         <h2>Blog Post Form</h2>
           <form onSubmit={this.handleSubmit.bind(this)}>
+            {this.state.redirectHome && <Redirect to='/api/blogs' />}
             <label>
               <h3>Title</h3>
                 <textarea rows='3' cols = '70'

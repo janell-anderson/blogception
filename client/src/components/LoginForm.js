@@ -61,6 +61,7 @@ export default class LoginForm extends Component {
               type="text"
               onChange={this.handleInputChange}
               value={this.state.password}
+              name="password"
             />
           </label>
           <br />

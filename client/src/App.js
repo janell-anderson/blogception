@@ -17,7 +17,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       blogs: [],
+      currentUser: null
     }
+    this.findBlog = this.findBlog.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
@@ -61,6 +63,7 @@ export default class App extends Component {
 
   // updating a blog post
   updateBlog(blog) {
+    console.log('blog');
     const options = {
       method: 'PUT',
       headers: {
@@ -119,6 +122,27 @@ export default class App extends Component {
       localStorage.removeItem('authToken');
       this.setState({
         currentUser: null
+      })
+    })
+  }
+
+  loginRequest(creds) {
+    fetch('/api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(creds),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(resp => {
+      if (!resp.ok) throw new Error(resp.statusMessage);
+      return resp.json();
+    })
+    .then(respBody => {
+      console.log(respBody);
+      localStorage.setItem('authToken', respBody.token);
+      this.setState({
+        currentUser: jwt.decodeToken(respBody.token).payload
       })
     })
   }

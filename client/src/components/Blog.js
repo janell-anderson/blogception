@@ -21,12 +21,10 @@ export default class Blog extends Component {
 
     return(
       <div className="">
-        <img src={img_url} className=''/>
+        <img src={img_url} alt='' className=''/>
 
-        <h3>Title:</h3>
-        <p className="">{title}</p>
+        <h3>{title}</h3>
 
-        <h3>Description:</h3>
         <p className="">{text}</p>
 
         <br />

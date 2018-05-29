@@ -4,10 +4,10 @@ import BlogForm from './BlogForm';
 
 export default class EditBlog extends Component {
   render() {
-    console.log(this.props.blog.id);
+    console.log('blog');
     return(
       <div>
-        <h1>EditBlog # {this.props.blog.id}</h1>
+        <h1>Edit Blog</h1>
         <BlogForm
           blog={this.props.blog}
           id='edit'

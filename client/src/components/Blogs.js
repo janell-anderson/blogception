@@ -12,12 +12,11 @@ export default class Blogs extends Component {
           <div key={blog.id} className="">
             <Link to={`blogs/${blog.id}`}>
               <div key={blog.id} >
-                {blog.id}
-                <p>{blog.id}</p>
-                <p>{blog.text}</p>
+                <p>{blog.title}</p>
                 <img src={blog.img_url} alt='no pic'/>
               </div>
             </Link>
+            <p>{blog.text}</p>
           </div>
           ))}
       </div>

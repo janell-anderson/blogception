@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 export default class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      RedirectLogin: false,
       username: '',
       email: '',
       password: ''
@@ -24,6 +26,7 @@ export default class RegisterForm extends Component {
     e.preventDefault();
     this.props.handleRegister(this.state);
     this.setState({
+      redirectHome: true,
       username: '',
       email: '',
       password: ''
@@ -34,6 +37,7 @@ export default class RegisterForm extends Component {
     return(
       <div className="form"><h2>Register</h2>
         <form onSubmit={this.handleSubmit} className="" method="post">
+          {this.state.redirectHome && <Redirect to='/' />}
           <label htmlFor="username">
             <input
               placeholder="Create a Username"
