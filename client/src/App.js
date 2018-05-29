@@ -68,7 +68,7 @@ export default class App extends Component {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(blog)
     };
