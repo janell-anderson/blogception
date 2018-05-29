@@ -17,7 +17,6 @@ export default class App extends Component {
     super(props);
     this.state = {
       blogs: [],
-      currentUser: null
     }
     this.handleDelete = this.handleDelete.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -221,17 +220,3 @@ export default class App extends Component {
     );
   }
 }
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//           <Switch>
-//           <Route exact path='/' component={Home} />
-//           <Route path='/register' component={RegisterForm} />
-//           </Switch>
-//       </div>
-//     );
-//   }
-// }
-// export default App;

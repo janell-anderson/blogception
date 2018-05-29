@@ -4,9 +4,10 @@ import BlogForm from './BlogForm';
 
 export default class EditBlog extends Component {
   render() {
+    console.log(this.props.blog.id);
     return(
       <div>
-        <h1>EditBlog</h1>
+        <h1>EditBlog # {this.props.blog.id}</h1>
         <BlogForm
           blog={this.props.blog}
           id='edit'
@@ -16,3 +17,5 @@ export default class EditBlog extends Component {
     )
   }
 }
+
+// {this.props.blog.id}

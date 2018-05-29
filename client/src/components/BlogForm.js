@@ -7,7 +7,8 @@ export default class BlogForm extends Component {
       blog: Object.assign({
         title: '',
         text: '',
-        img_url: ''
+        img_url: '',
+        // user_id: this.props.user.id
       }, props.blog)
     }
   }

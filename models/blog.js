@@ -15,8 +15,8 @@ function getOne(id) {
 
 function create(posts) {
   return db.one(`
-    INSERT INTO posts (title, text, img_url, user_id)
-    VALUES ($/title/, $/text/, $/img_url/, $/user_id/)
+    INSERT INTO posts (title, text, img_url)
+    VALUES ($/title/, $/text/, $/img_url/)
     RETURNING *
     `, posts);
 }

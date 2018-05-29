@@ -22,8 +22,8 @@ CREATE TABLE posts (
   -- timestamp
 );
 
-CREATE TABLE reblogs (
-  id SERIAL PRIMARY KEY,
-  posts_id INTEGER REFERENCES posts (id),
-  user_id INTEGER REFERENCES users (id)
-)
+-- CREATE TABLE reblogs (
+--   id SERIAL PRIMARY KEY,
+--   posts_id INTEGER REFERENCES posts (id) ON DELETE CASCADE,
+--   user_id INTEGER REFERENCES users (id) ON DELETE CASCADE
+-- )
