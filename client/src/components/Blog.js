@@ -17,17 +17,17 @@ export default class Blog extends Component {
   // a componentDidMount for likes and Reblog will be here
 
   render() {
-    const { title, text, id, img_url } = this.state.blog;
+    const { title, text, img_url, id } = this.state.blog;
 
     return(
       <div className="">
         <img src={img_url} className=''/>
 
         <h3>Title:</h3>
-        <p className="text-event">{title}</p>
+        <p className="">{title}</p>
 
         <h3>Description:</h3>
-        <p className="text-event">{text}</p>
+        <p className="">{text}</p>
 
         <br />
         <Link to={`/api/blogs/${id}/edit`}>

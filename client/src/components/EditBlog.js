@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import BlogForm from './BlogForm';
-// EventForm.js holds the blog form.
+// BlogForm.js holds the blog form.
 
 export default class EditBlog extends Component {
   render() {
     return(
       <div>
-        <h1>Edit Blog # {this.props.blog.id}</h1>
+        <h1>EditBlog</h1>
         <BlogForm
-
+          blog={this.props.blog}
+          id='edit'
+          func={this.props.onSubmit}
         />
       </div>
     )

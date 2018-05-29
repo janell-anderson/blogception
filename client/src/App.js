@@ -170,27 +170,8 @@ export default class App extends Component {
     return(
       <div className="App">
         <Switch>
-          <Route exact path='/' component={(props) => (
-            <Home
-              {...props}
-              name={this.state.currentUser}
-              blogs={this.state.blogs}
-            /> )} />
 
-          <Route exact path='/api/blogs' component={(props) => (
-            <Blogs
-              {...props}
-              blogs={this.state.blogs}
-            /> )} />
-
-          <Route path='/api/blogs/:id' component={(props) => (
-            <Blog
-              {...props}
-              blog={this.findBlog(props.match.params.id)}
-              del={() => this.handleDelete(props.match.params.id)}
-            /> )} />
-
-          <Route exact path='/api/blogs/new'
+         <Route exact path='/api/blogs/new'
           component={() => (
             <CreateBlog
               onSubmit={this.createBlog.bind(this)}
@@ -201,6 +182,19 @@ export default class App extends Component {
               {...props}
               blog={this.findBlog(props.match.params.id)}
               onSubmit={this.updateBlog.bind(this)}
+            /> )} />
+
+          <Route path='/api/blogs/:id' component={(props) => (
+            <Blog
+              {...props}
+              blog={this.findBlog(props.match.params.id)}
+              del={() => this.handleDelete(props.match.params.id)}
+            /> )} />
+
+          <Route exact path='/api/blogs' component={(props) => (
+            <Blogs
+              {...props}
+              blogs={this.state.blogs}
             /> )} />
 
           <Route exact path='/api/auth/login' component={(props) => (
@@ -214,6 +208,14 @@ export default class App extends Component {
               {...props}
                 handleRegister={this.handleRegister}
             /> )} />
+
+          <Route exact path='/' component={(props) => (
+            <Home
+              {...props}
+              name={this.state.currentUser}
+              blogs={this.state.blogs}
+            /> )} />
+
         </Switch>
       </div>
     );
