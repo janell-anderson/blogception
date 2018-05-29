@@ -16,7 +16,7 @@ function register(cred) {
       return db.one(`
         INSERT INTO users (username, email, password)
         VALUES ($/username/, $/email/, $/password/)
-        RETURNING id, email, username
+        RETURNING id, username, email
         `, newUser)
   });
 }

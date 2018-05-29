@@ -158,9 +158,8 @@ export default class App extends Component {
       }
     })
       .then(resp => {
-        if (!resp.okay)
-          throw new Error (resp.statusMessage);
-        return resp.json
+        if (!resp.ok) throw new Error (resp.statusMessage);
+        return resp.json();
       })
       .then(respBody => {
         console.log(respBody);

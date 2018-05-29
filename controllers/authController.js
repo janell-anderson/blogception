@@ -21,6 +21,7 @@ function restrict(req, res, next) {
 }
 
 function register(req, res) {
+  console.log(req.body);
   userModel.register(req.body)
     .catch(err => res.status(401).json({
       message: 'Username taken'
@@ -57,7 +58,7 @@ function login(req, res, next) {
 
 module.exports = {
   recieveToken,
-  restrict,
   register,
+  restrict,
   login
 }
