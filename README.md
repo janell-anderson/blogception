@@ -3,6 +3,14 @@
 ## Summary
 Blogception is a blogging site where you can write about your latest hobbies, interests or just life.
 
+## Getting Started
+When you fork and clone it into your terminal. Follow these steps:
+    - npm i in root application
+    - Still in the root folder psql -f db/schema.sql to load up the database.
+    - There is a seed.sql file also, but it is commented out. If you want to use the data uncomment and psql -f db/seed.sql
+    - cd into client and do a yarn install
+    - Once you installed all dependencies npm run dev to get both the client and server running.
+
 ## User Story
 User will be on the landing page of the Blogception. They will be able to see post of users. The home page will have basic information about how to setup a blog along with a blog post.
 
