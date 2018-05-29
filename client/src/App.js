@@ -63,7 +63,7 @@ export default class App extends Component {
 
   // updating a blog post
   updateBlog(blog) {
-    console.log('blog');
+    // console.log('blog');
     const options = {
       method: 'PUT',
       headers: {
@@ -72,7 +72,7 @@ export default class App extends Component {
       },
       body: JSON.stringify(blog)
     };
-    const URL = `api/blogs/${blog.id}`;
+    const URL = `/api/blogs/${blog.id}`;
     fetch(URL, options).then(resp => {
       if (!resp.ok) throw new Error(resp.statusMessage);
       return resp.json();

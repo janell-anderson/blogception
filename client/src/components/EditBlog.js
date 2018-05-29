@@ -4,7 +4,7 @@ import BlogForm from './BlogForm';
 
 export default class EditBlog extends Component {
   render() {
-    console.log('blog');
+    // console.log('blog');
     return(
       <div>
         <h1>Edit Blog</h1>
