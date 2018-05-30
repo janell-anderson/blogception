@@ -41,10 +41,6 @@ function register(req, res) {
 
 function login(req, res, next) {
   userModel.login(req.body)
-    .catch(err => res.status(401).json({
-      status: 'Error',
-      message: 'Invalid credentials'
-    }))
     .then(data => tokenService.makeToken({
       id: data.id,
       email: data.email,

@@ -126,28 +126,6 @@ export default class App extends Component {
     })
   }
 
-  loginRequest(creds) {
-    console.log(creds);
-    fetch('/api/auth/login', {
-      method: 'POST',
-      body: JSON.stringify(creds),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(resp => {
-      if (!resp.ok) throw new Error(resp.statusMessage);
-      return resp.json();
-    })
-    .then(respBody => {
-      console.log(respBody);
-      localStorage.setItem('authToken', respBody.token);
-      this.setState({
-        currentUser: jwt.decodeToken(respBody.token).payload
-      })
-    })
-  }
-
   // When a user register we are fetching it from the designated url as a method POST.
   // the user will then get a token
   registerRequest(creds) {
@@ -169,6 +147,29 @@ export default class App extends Component {
           currentUser: jwt.decodeToken(respBody.token).payload
         })
       })
+  }
+
+
+  loginRequest(creds) {
+    console.log(fetch);
+    fetch('/api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(creds),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(resp => {
+      if (!resp.ok) throw new Error(resp.statusMessage);
+      return resp.json();
+    })
+    .then(respBody => {
+      console.log(respBody);
+      localStorage.setItem('authToken', respBody.token);
+      this.setState({
+        currentUser: jwt.decodeToken(respBody.token).payload
+      })
+    })
   }
 
   handleLogin(creds) {
