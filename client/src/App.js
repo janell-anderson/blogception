@@ -109,7 +109,7 @@ export default class App extends Component {
       }
     })
     .then(resp => {
-      if (!resp.ok) throw new Error(resp.mesage);
+      if (!resp.ok) throw new Error(resp.message);
       return resp.json();
     })
     .then(respBody => {
@@ -127,6 +127,7 @@ export default class App extends Component {
   }
 
   loginRequest(creds) {
+    console.log(creds);
     fetch('/api/auth/login', {
       method: 'POST',
       body: JSON.stringify(creds),
@@ -223,6 +224,7 @@ export default class App extends Component {
             <LoginForm
               {...props}
               handleLogin={this.handleLogin}
+              currentUser={this.state.currentUser}
             /> )} />
 
           <Route exact path='/api/auth/register' component={(props) => (

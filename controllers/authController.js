@@ -9,6 +9,7 @@ function recieveToken(req, res, next) {
 };
 
 function restrict(req, res, next) {
+    // console.log(req.authToken);
   tokenService.verify(req.authToken)
     .then(data => {
       res.locals.user = data;
@@ -27,9 +28,9 @@ function register(req, res) {
       message: 'Username taken'
     }))
     .then(data => tokenService.makeToken({
-      username: data.username,
+      id: data.id,
       email: data.email,
-      id: data.id
+      username: data.username
     }))
     .then(token => {
       res.json({
