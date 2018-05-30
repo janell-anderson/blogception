@@ -7,10 +7,12 @@ export default class LoginForm extends Component {
     this.state = {
       username: '',
       email: '',
-      password: ''
+      password: '',
+      redirectHome: false
     }
-    this.handleInputChange = this. handleInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleInputChange(e) {
@@ -19,60 +21,73 @@ export default class LoginForm extends Component {
       [name]: value
     });
   }
+
   handleSubmit(e) {
-    e.perventDefault();
+    e.preventDefault();
     this.props.handleLogin(this.state);
     this.setState({
       username: '',
       email: '',
-      password: ''
+      password: '',
+      redirectHome: true
     });
   }
 
+    handleLogout(e) {
+      e.preventDefault();
+      this.props.handleLogout();
+  }
+
   render() {
+    const selected = this.props.currentUser;
+    const details = selected ?
+    (<div className=""><Link to='/'>
+      <button className="button" onClick={this.handleLogout}>Logout</button></Link></div>)
+    :
+    (<form onSubmit={this.handleSubmit} method="post">
+      {this.state.redirectHome && <Redirect to='/' />}
+      <h2>Log In</h2>
+      <label htmlFor="username">
+        <input
+          placeholder="Username"
+          type="text"
+          onChange={this.handleInputChange}
+          value={this.state.username}
+          name="username" />
+      </label>
+      <br />
+
+      <label htmlFor="email">
+        <input
+          placeholder="Email"
+          type="text"
+          onChange={this.handleInputChange}
+          value={this.state.email}
+          name="email" />
+      </label>
+      <br />
+
+      <label htmlFor="password">
+        <input
+          placeholder="Password"
+          type="password"
+          onChange={this.handleInputChange}
+          value={this.state.password}
+          name="password" />
+      </label>
+      <br />
+
+      <input
+        type="submit"
+        value="Login"
+        onSubmit={this.handleSubmit} />
+        <br />
+        <Link to='/api/auth/register'><p>Not a user yet? Please register.</p></Link>
+    </form>)
+
     return (
-      <div> <h2>Log In</h2>
-        <form onSubmit={this.handleSubmit} method="post">
-          <label htmlFor="username">
-            <input
-              placeholder="Username"
-              type="text"
-              onChange={this.handleInputChange}
-              value={this.state.username}
-              name="username"
-            />
-          </label>
-          <br />
-
-          <label htmlFor="email">
-            <input
-              placeholder="Email"
-              type="text"
-              onChange={this.handleInputChange}
-              value={this.state.email}
-              name="email"
-            />
-          </label>
-          <br />
-
-          <label htmlFor="password">
-            <input
-              placeholder="Password"
-              type="text"
-              onChange={this.handleInputChange}
-              value={this.state.password}
-              name="password"
-            />
-          </label>
-          <br />
-
-          <input
-            className="button"
-            type="submit"
-            value="Login"
-            onSubmit={this.handleSubmit}
-          />
-        </form>
+      <div>
+        {details}
       </div>
     )
   }

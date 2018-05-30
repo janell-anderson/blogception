@@ -7,7 +7,6 @@ export default class Home extends Component {
   render() {
     return(
       <div>
-        <Nav />
         <h1>Welcome to Blogception</h1>
       </div>
     )

@@ -50,7 +50,11 @@ function login(req, res, next) {
       res.json({
         token
       })
-    });
+    })
+    .catch(err => res.status(401).json({
+      status: 'Error',
+      message: 'Invalid credentials'
+    }))
 }
 
 module.exports = {

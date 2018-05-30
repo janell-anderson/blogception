@@ -23,6 +23,7 @@ export default class App extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
   // we will be fetching from the posts database
   fetchBlogs() {
@@ -151,7 +152,6 @@ export default class App extends Component {
 
 
   loginRequest(creds) {
-    console.log(fetch);
     fetch('/api/auth/login', {
       method: 'POST',
       body: JSON.stringify(creds),
@@ -185,6 +185,10 @@ export default class App extends Component {
     window.location.reload();
   }
 
+  handleLogout() {
+    this.setState({currentUser: null});
+  }
+
   componentDidMount() {
     this.fetchBlogs();
     this.checkToken();
@@ -193,6 +197,8 @@ export default class App extends Component {
   render() {
     return(
       <div className="App">
+          <Nav user={this.state.currentUser}/>
+
         <Switch>
 
          <Route exact path='/api/blogs/new'
@@ -225,6 +231,7 @@ export default class App extends Component {
             <LoginForm
               {...props}
               handleLogin={this.handleLogin}
+              handleLogout={this.handleLogout}
               currentUser={this.state.currentUser}
             /> )} />
 
@@ -234,7 +241,7 @@ export default class App extends Component {
                 handleRegister={this.handleRegister}
             /> )} />
 
-          <Route exact path='/' component={(props) => (
+          <Route path='/' component={(props) => (
             <Home
               {...props}
               name={this.state.currentUser}
