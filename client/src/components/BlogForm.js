@@ -7,10 +7,11 @@ export default class BlogForm extends Component {
     this.state = {
       redirectHome: false,
       blog: Object.assign({
-        title: '',
+        blog: '',
         text: '',
         img_url: '',
-        // user_id: this.props.user.id
+        location: '',
+        user_id: this.props.user.id
       }, props.blog)
     }
   }
@@ -33,50 +34,44 @@ export default class BlogForm extends Component {
       redirectHome: true
     });
   }
-
   render() {
     console.log(this.state.blog);
-    const { title, text, img_url} = this.state.blog
+    console.log(this.props.user);
+    const { title, text, id, img_url} = this.state.blog
     return (
-      <div>
-        <h2>Blog Post Form</h2>
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            {this.state.redirectHome && <Redirect to='/api/blogs' />}
-            <label>
-              <h3>Title</h3>
-                <textarea rows='3' cols = '70'
-                  name='title'
-                  value={title}
-                  onChange={this.handleChange.bind(this)}
-                />
-            </label>
-            <br />
+      <div className="blog-form-div">
 
-            <label>
-              <h3>Text</h3>
-              <textarea rows='6' cols='70'
-                name='text'
-                value={text}
-                onChange={this.handleChange.bind(this)}
-              />
-            </label>
-            <br />
+        <h1>{id ? 'Edit this ' : 'Create an '} blog {this.props.user.username}!</h1>
+        <form onSubmit={this.handleSubmit.bind(this)} className={id ? 'edit' : 'create'}>
+          {this.state.redirectHome && <Redirect to='/api/blogs' />}
+          <label>
+            <h3>Title</h3>
+            <textarea rows='3' cols ='70'
+              name='title'
+              value={title}
+              onChange={this.handleChange.bind(this)} />
+          </label><br/>
 
-            <label>
-              <h3>Image Url</h3>
-              <textarea rows='2' cols='70'
-                name='img_url'
-                value={img_url}
-                onChange={this.handleChange.bind(this)}
-              />
-            </label>
-            <br />
+          <label>
+            <h3>Text</h3>
+            <textarea rows='6' cols='70'
+              name='text'
+              value={text}
+              onChange={this.handleChange.bind(this)} />
+          </label><br/>
 
-            <button className='button' type='submit'>Submit</button>
-          </form>
+          <label>
+            <h3>Image URL</h3>
+            <textarea rows='2' cols ='70'
+              name='img_url'
+              value={img_url}
+              onChange={this.handleChange.bind(this)} />
+          </label><br/>
+
+          <button className='button' type='submit'>{id ? 'Edit' : 'Create'}</button>
+
+        </form>
       </div>
     )
   }
 }
-
-

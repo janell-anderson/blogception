@@ -12,6 +12,7 @@ export default class EditBlog extends Component {
           blog={this.props.blog}
           id='edit'
           func={this.props.onSubmit}
+          user={this.props.user}
         />
       </div>
     )

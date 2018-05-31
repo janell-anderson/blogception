@@ -205,6 +205,7 @@ export default class App extends Component {
           component={() => (
             <CreateBlog
               onSubmit={this.createBlog.bind(this)}
+              user={this.state.currentUser}
             /> )} />
 
           <Route exact path='/api/blogs/:id/edit' component={(props) => (
@@ -212,6 +213,7 @@ export default class App extends Component {
               {...props}
               blog={this.findBlog(props.match.params.id)}
               onSubmit={this.updateBlog.bind(this)}
+              user={this.state.currentUser}
             /> )} />
 
           <Route path='/api/blogs/:id' component={(props) => (
@@ -219,6 +221,7 @@ export default class App extends Component {
               {...props}
               blog={this.findBlog(props.match.params.id)}
               del={() => this.handleDelete(props.match.params.id)}
+              user={this.state.currentUser}
             /> )} />
 
           <Route exact path='/api/blogs' component={(props) => (
