@@ -11,6 +11,7 @@ import EditBlog from './components/EditBlog';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import CreateBlog from './components/CreateBlog';
+import Profile from './components/Profile';
 
 export default class App extends Component {
   constructor(props) {
@@ -242,6 +243,12 @@ export default class App extends Component {
             <RegisterForm
               {...props}
                 handleRegister={this.handleRegister}
+            /> )} />
+
+          <Route exact path='/api/blogs/profile' component={(props) => (
+            <Profile
+              {...props}
+
             /> )} />
 
           <Route path='/' component={(props) => (

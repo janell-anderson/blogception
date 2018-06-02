@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Redirect, Link } from 'react-router-dom';
 
 export default class LoginForm extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +16,7 @@ export default class LoginForm extends Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
+  // will change the state as you type in the input box
   handleInputChange(e) {
     const { name, value } = e.target;
     this.setState({
@@ -33,19 +35,21 @@ export default class LoginForm extends Component {
     });
   }
 
-    handleLogout(e) {
-      e.preventDefault();
-      this.props.handleLogout();
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.handleLogout();
   }
 
   render() {
     const selected = this.props.currentUser;
     const details = selected ?
-    (<div className=""><Link to='/'>
-      <button className="button" onClick={this.handleLogout}>Logout</button></Link></div>)
-    :
-    (<form onSubmit={this.handleSubmit} method="post">
-      {this.state.redirectHome && <Redirect to='/' />}
+    (<div className="form logout-page"><Link to='/'><button className="button" onClick={this.handleLogout}>Log Out</button></Link></div>) :
+    (<form
+      onSubmit={this.handleSubmit}
+      className="login form"
+      method="post">
+
+      {this.state.redirectHome && <Redirect to='/'/>}
       <h2>Log In</h2>
       <label htmlFor="username">
         <input
@@ -56,8 +60,7 @@ export default class LoginForm extends Component {
           name="username" />
       </label>
       <br />
-
-      <label htmlFor="email">
+      <label htmlFor="Email">
         <input
           placeholder="Email"
           type="text"
@@ -66,7 +69,6 @@ export default class LoginForm extends Component {
           name="email" />
       </label>
       <br />
-
       <label htmlFor="password">
         <input
           placeholder="Password"
@@ -76,8 +78,8 @@ export default class LoginForm extends Component {
           name="password" />
       </label>
       <br />
-
       <input
+        className="button"
         type="submit"
         value="Login"
         onSubmit={this.handleSubmit} />

@@ -17,6 +17,7 @@ function getOne(req, res, next) {
 }
 
 function create(req, res, next) {
+  console.log("Hi I created a comment!");
   commDb.create(req.body)
     .then(data => {
       res.locals.comments = data

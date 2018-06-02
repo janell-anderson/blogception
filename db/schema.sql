@@ -1,5 +1,5 @@
 -- CREATE DATABASE blog_db;
--- \c blog_db
+\c blog_db
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS posts CASCADE;

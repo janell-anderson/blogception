@@ -20,6 +20,10 @@ export default class Nav extends Component {
             <li className='nav-li'>Create Blog</li>
           </Link>
 
+          <Link to='/api/blogs/profile'>
+            <li className='nav-li'>Profile</li>
+          </Link>
+
           <Link to='/api/auth/register'>
             <li className="nav-li">Register</li>
           </Link>
