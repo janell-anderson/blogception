@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Comments from './Comments';
 
 export default class Blog extends Component {
   constructor(props) {
@@ -35,6 +36,8 @@ export default class Blog extends Component {
         <Link to="/api/blogs">
           <button className='button' onClick={this.props.del}> Delete </button>
         </Link>
+
+        <Comments />
       </div>
     )
   }

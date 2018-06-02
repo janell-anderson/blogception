@@ -247,7 +247,6 @@ export default class App extends Component {
 
           <Route exact path='/api/blogs/profile' component={(props) => (
             <Profile
-              {...props}
 
             /> )} />
 

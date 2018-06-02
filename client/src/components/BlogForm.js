@@ -41,7 +41,7 @@ export default class BlogForm extends Component {
     return (
       <div className="blog-form-div">
 
-        <h1>{id ? 'Edit this ' : 'Create an '} blog {this.props.user.username}!</h1>
+        <h1>{id ? 'Edit this ' : 'Post a '} blog {this.props.user.username}!</h1>
         <form onSubmit={this.handleSubmit.bind(this)} className={id ? 'edit' : 'create'}>
           {this.state.redirectHome && <Redirect to='/api/blogs' />}
           <label>
