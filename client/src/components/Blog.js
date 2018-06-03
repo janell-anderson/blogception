@@ -37,7 +37,11 @@ export default class Blog extends Component {
           <button className='button' onClick={this.props.del}> Delete </button>
         </Link>
 
-        <Comments />
+        <Comments
+          blog={this.props.blog}
+          id='create'
+          func={this.state.onSubmit}
+         />
       </div>
     )
   }

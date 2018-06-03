@@ -12,10 +12,6 @@ export default class Nav extends Component {
             <li className="nav-li">Home</li>
           </Link>
 
-          <Link to='/profile'>
-            <li className='nav-li'>Profile</li>
-          </Link>
-
           <Link to='/api/blogs'>
             <li className='nav-li'>Blogs</li>
           </Link>
@@ -23,8 +19,6 @@ export default class Nav extends Component {
           <Link to='/api/blogs/new'>
             <li className='nav-li'>Create Blog</li>
           </Link>
-
-
 
           <Link to='/api/auth/register'>
             <li className="nav-li">Register</li>
@@ -38,3 +32,7 @@ export default class Nav extends Component {
     )
   }
 }
+
+// <Link to='/profile'>
+//   <li className='nav-li'>Profile</li>
+// </Link>

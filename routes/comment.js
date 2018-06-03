@@ -24,5 +24,11 @@ commRouter.route('/:id')
   .delete(
     commentController.destroy,
     respController.sendOkResp,
+    respController.sendErrResp)
+
+  .put(
+    commentController.update,
+    respController.sendOkResp,
     respController.sendErrResp);
+
 module.exports = commRouter;

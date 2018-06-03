@@ -4,19 +4,21 @@ import { Link } from 'react-router-dom';
 export default class Blogs extends Component {
   render() {
     return (
-      <div className="">
+      <div className="blog-post">
         <br />
         <h2>Blog List</h2>
 
         {this.props.blogs.map(blog => (
           <div key={blog.id} className="">
             <Link to={`blogs/${blog.id}`}>
-              <div key={blog.id} >
+              <div key={blog.id} className="post">
                 <p>{blog.title}</p>
-                <img src={blog.img_url} alt='no pic'/>
+                <img src={blog.img_url} alt='no pic' className="post-img"/>
               </div>
             </Link>
+          <div className="desc">
             <p>{blog.text}</p>
+          </div>
           </div>
           ))}
       </div>

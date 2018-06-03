@@ -33,9 +33,18 @@ function destroy(req, res, next) {
     }).catch(next);
 }
 
+function update(req, res, next) {
+  commDb.update(req.body)
+    .then(data => {
+      res.locals.comments = data;
+      next();
+    }).catch(next);
+}
+
 module.exports= {
   getAll,
   getOne,
   create,
-  destroy
+  destroy,
+  update
 }

@@ -15,8 +15,8 @@ function getAll() {
 
 function create(comment) {
   return db.one(`
-    INSERT INTO comments (text, posts_id)
-    VALUES ($/text/, $/posts_id/)
+    INSERT INTO comments (text, post_id)
+    VALUES ($/text/, $/post_id/)
     RETURNING *
     `, comment)
 }
@@ -28,9 +28,19 @@ function destroy(id) {
     `, id)
 }
 
+function update(comment) {
+  return db.one(`
+    UPDATE comments
+    SET text = $/text/, post_id = $/post_id/
+    WHERE id = $/id/
+    RETURNING *
+    `, comment);
+}
+
 module.exports = {
   getOne,
   getAll,
   create,
-  destroy
+  destroy,
+  update
 }

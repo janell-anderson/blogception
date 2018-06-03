@@ -5,8 +5,9 @@ export default class CommentsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    comment: Object.assign({
-      text: '',
+      redirectHome: false,
+      comment: Object.assign({
+        text: ''
       }, props.comment)
     }
   }
@@ -15,7 +16,7 @@ export default class CommentsForm extends Component {
     const { name, value } = e.target;
     this.setState((prevState, props) => ({
       comment: {
-        ...prevState.blog,
+        ...prevState.comment,
         [name]: value
       }
     }))
@@ -23,25 +24,30 @@ export default class CommentsForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.func(this.state.comment);
+    // func=(this.state.blog);
+    // window.location.reload();
+    this.setState({
+      text: ''
+    });
   }
 
   render() {
-    console.log(this.state.comment);
+
+    // console.log(this.props.func);
     const { text } = this.state.comment;
     return(
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
         {this.state.redirectHome && <Redirect to='/api/blogs/:id' />}
           <label>
-              <h3>Comment Form</h3>
-              <textarea rows='3' cols ='70'
+              <h3>Comment</h3>
+              <textarea rows='3' cols ='50'
                 name='text'
                 value={text}
                 onChange={this.handleChange.bind(this)} />
-            </label><br/>
+          </label><br/>
 
-            <button className="" type='submit'>Submit</button>
+            <button className="button" type='submit'>Submit</button>
         </form>
       </div>
      )

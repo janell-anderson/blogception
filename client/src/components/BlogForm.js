@@ -7,7 +7,7 @@ export default class BlogForm extends Component {
     this.state = {
       redirectHome: false,
       blog: Object.assign({
-        blog: '',
+        title: '',
         text: '',
         img_url: '',
         location: '',

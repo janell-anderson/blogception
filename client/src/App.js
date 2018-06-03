@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import jwt from 'jwt-js';
@@ -11,7 +10,6 @@ import EditBlog from './components/EditBlog';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import CreateBlog from './components/CreateBlog';
-import Profile from './components/Profile';
 
 export default class App extends Component {
   constructor(props) {
@@ -29,6 +27,18 @@ export default class App extends Component {
   // we will be fetching from the posts database
   fetchBlogs() {
     fetch('/api/blogs')
+      .then(resp => {
+        if(!resp.ok) {
+          throw Error('oops: ', resp.message);
+        }
+        return resp.json();
+    }).then(data => this.setState ({
+      blogs: data.data
+    })).catch(err => console.log(`error: ${err}`))
+  }
+
+  fetchComments() {
+    fetch('/api/comments')
       .then(resp => {
         if(!resp.ok) {
           throw Error('oops: ', resp.message);
@@ -245,11 +255,6 @@ export default class App extends Component {
                 handleRegister={this.handleRegister}
             /> )} />
 
-          <Route exact path='/api/blogs/profile' component={(props) => (
-            <Profile
-
-            /> )} />
-
           <Route path='/' component={(props) => (
             <Home
               {...props}
@@ -262,3 +267,8 @@ export default class App extends Component {
     );
   }
 }
+
+          // <Route exact path='/api/blogs/profile' component={(props) => (
+          //   <Profile
+
+          //   /> )} />
