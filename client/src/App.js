@@ -10,15 +10,18 @@ import EditBlog from './components/EditBlog';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import CreateBlog from './components/CreateBlog';
+import Comments from './components/Comments';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       blogs: [],
+      comments: [],
       currentUser: null
     }
     this.findBlog = this.findBlog.bind(this);
+    this.findComment = this.findComment.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
@@ -55,6 +58,11 @@ export default class App extends Component {
     return blog[0];
   }
 
+  findComment(id) {
+    const comment = this.state.comments.filter(s => (s.id === parseInt(id, 10)));
+    return comment[0];
+  }
+
   // a function for creating a blog post
   createBlog(blog) {
     fetch('/api/blogs/new', {
@@ -67,7 +75,7 @@ export default class App extends Component {
     .then(resBody => {
       this.setState((prevState, props) => {
         return {
-          events: prevState.blogs.concat(resBody.data)
+          blogs: prevState.blogs.concat(resBody.data)
         }
       })
     })
@@ -104,6 +112,59 @@ export default class App extends Component {
       this.setState((prevState, props) => {
         return {
           blogs: prevState.blogs.filter(blog => blog.id !== id)
+        }
+      })
+    })
+  }
+
+  // Create Comment
+  createComment(comment) {
+    fetch('/api/comment/new', {
+      method: 'POST',
+      body: JSON.stringify(comment),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(resBody => {
+      this.setState((prevState, props) => {
+        return {
+          comments: prevState.comments.concat(resBody.data)
+        }
+      })
+    })
+  }
+
+  // Update Comment
+  updateComment(comment) {
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(comment)
+    };
+    const URL = `/api/comment/${comment.id}`;
+    fetch(URL, options).then(resp => {
+      if (!resp.ok) throw new Error(resp.statusMessage);
+      return resp.json();
+    })
+  }
+
+  // Delete a Comment
+  deleteComment(id) {
+    fetch(`/api/comment/${id}`, {
+      method: 'DELETE'
+    })
+    .then(resp => {
+      if (!resp.ok) throw new Error(resp.statusMessage);
+      return resp.json();
+    })
+    .then(respBody => {
+      this.setState((prevState, props) => {
+        return {
+          comments: prevState.comments.filter(comment => comment.id !== id)
         }
       })
     })
@@ -202,6 +263,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.fetchBlogs();
+    this.fetchComments();
     this.checkToken();
   }
 
@@ -217,6 +279,10 @@ export default class App extends Component {
             <CreateBlog
               onSubmit={this.createBlog.bind(this)}
               user={this.state.currentUser}
+            /> )} />
+
+          <Route exact path='/api/comment/new' component={() => (
+              <Comments
             /> )} />
 
           <Route exact path='/api/blogs/:id/edit' component={(props) => (
@@ -260,6 +326,7 @@ export default class App extends Component {
               {...props}
               name={this.state.currentUser}
               blogs={this.state.blogs}
+              comments={this.state.comments}
             /> )} />
 
         </Switch>

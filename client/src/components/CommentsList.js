@@ -5,7 +5,7 @@ export default class CommentsList extends Component {
     super(props);
     this.state = {
     comment: Object.assign({
-      text: '',
+      text: ''
       }, props.comment)
     }
   }
@@ -15,7 +15,7 @@ export default class CommentsList extends Component {
     return(
       <div>
         <h3>Comment List</h3>
-
+          {this.props.text}
       </div>
     )
   }

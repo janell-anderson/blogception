@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Comments from './Comments';
+import CommentsList from './CommentsList';
 
 export default class Blog extends Component {
   constructor(props) {
@@ -10,12 +11,18 @@ export default class Blog extends Component {
         title: '',
         text: '',
         img_url: '',
-      }, props.blog)
+      }, props.blog),
+      comment: Object.assign({
+        text: ''
+      }, props.comment)
     }
   }
   // to edit a blog function with be here
 
   // a componentDidMount for likes and Reblog will be here
+  // componentDidMount {
+
+  // }
 
   render() {
     const { title, text, img_url, id } = this.state.blog;
@@ -37,11 +44,23 @@ export default class Blog extends Component {
           <button className='button' onClick={this.props.del}> Delete </button>
         </Link>
 
-        <Comments
-          blog={this.props.blog}
-          id='create'
-          func={this.state.onSubmit}
+        <Link to={`/api/comment/new`}>
+          <button className='button'>Create Comment</button>
+        </Link>
+
+        <CommentsList
+          id='get'
+          text={this.props.comment}
+
+        // {this.props.comments.map(comment => (
+        //   <div key={comment.id} className="">
+        //       <div key={comment.id}>
+        //         <p>{comment.text}</p>
+        //         </div>
+        //       </div>
+        //   ))}
          />
+
       </div>
     )
   }
