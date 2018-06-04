@@ -43,24 +43,6 @@ export default class Blog extends Component {
         <Link to="/api/blogs">
           <button className='button' onClick={this.props.del}> Delete </button>
         </Link>
-
-        <Link to={`/api/comment/new`}>
-          <button className='button'>Create Comment</button>
-        </Link>
-
-        <CommentsList
-          id='get'
-          text={this.props.comment}
-
-        // {this.props.comments.map(comment => (
-        //   <div key={comment.id} className="">
-        //       <div key={comment.id}>
-        //         <p>{comment.text}</p>
-        //         </div>
-        //       </div>
-        //   ))}
-         />
-
       </div>
     )
   }

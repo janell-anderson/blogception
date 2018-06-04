@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from './Header';
+import Footer from './Footer';
 
 
 export default class Home extends Component {
   render() {
     return(
-      <div>
+      <div className="intro">
         <h1>Welcome to Blogception</h1>
 
-        <div className="intro">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          </p>
+        <div className="">
+          <p>Blogception is a blogging site where you can write about your latest hobbies, interests or just life.</p>
+          <p></p>
         </div>
+        <Footer />
       </div>
     )
   }

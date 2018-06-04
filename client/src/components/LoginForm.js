@@ -43,10 +43,10 @@ export default class LoginForm extends Component {
   render() {
     const selected = this.props.currentUser;
     const details = selected ?
-    (<div className="form logout-page"><Link to='/'><button className="button" onClick={this.handleLogout}>Log Out</button></Link></div>) :
+    (<div className="form-logout"><Link to='/'><button className="button" onClick={this.handleLogout}>Log Out</button></Link></div>) :
     (<form
       onSubmit={this.handleSubmit}
-      className="login form"
+      className="login-form"
       method="post">
 
       {this.state.redirectHome && <Redirect to='/'/>}

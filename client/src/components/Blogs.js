@@ -14,11 +14,11 @@ export default class Blogs extends Component {
               <div key={blog.id} className="post">
                 <p>{blog.title}</p>
                 <img src={blog.img_url} alt='no pic' className="post-img"/>
-              </div>
-            </Link>
           <div className="desc">
             <p>{blog.text}</p>
           </div>
+              </div>
+            </Link>
           </div>
           ))}
       </div>

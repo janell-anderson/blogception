@@ -47,13 +47,15 @@ The user will be able to create, edit and delete a blog post. The read functiona
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Database | H | 5hrs | 6hrs | N/A |
-| Models & Controller | H | 5hrs | 3hrs | N/A |
-| CRUD functionality Back-end | H | 9hrs | 3hrs | N/A |
-| CRUD functionality Front-end | H | 15hrs | N/A | N/A |
+| Models & Controller | H | 5hrs | 3hrs | 3hrs |
+| CRUD functionality Back-end | H | 9hrs | 3hrs | 3hrs |
+| CRUD functionality Front-end | H | 15hrs | 10hrs | 10hrs |
+| Authorization Front-end | H | 12hrs | 8hrs | 8hrs |
+| Comments sections Front & Backend | H | 24hrs | 15hrs | 15hrs |
 | Styling | H | 72hrs | N/A | N/A |
 | Total |  | | N/A | N/A |
 
-### DAY 1 May 24th
+<!-- ### DAY 1 May 24th
 Brainstorming about what I will be doing for my project 4. Came up with doing a blog application. Decided on the core technologies that I will be using. For the front-end I will be using React.js. This is be one of the biggest challenges for me since my React skills are low. As for the backend I will be doing Node.js and Express.js. I feel more comfortable with Express and since we only learned Rails for three days I do not want to spend most of my project time on Rails.
 
 - WORKFLOW LIST
@@ -74,7 +76,8 @@ Today was also a slow day. Tried to do front-end crud and create a form but was 
     - Continue working on authorization forms on front-end
     - Try to complete front-end CRUD
         - POST WORKFLOW
-            - If I successfully tackled everything above I will tackle logic for logged in users to be the only ones to create, edit and delete blog posts.
+            - If I successfully tackled everything above I will tackle logic for logged in users to be the only ones to create, edit and delete blog posts. -->
+
 
 ## Obstacles
 - Unhandled Promise Rejection Warning
@@ -82,5 +85,6 @@ Today was also a slow day. Tried to do front-end crud and create a form but was 
         - bundle.js.map
             - no-reffer-when-downgrade(default)
                 -This is the user agent's default behavior if no policy is specified. The URL is sent as a referrer when the protocol security level stays the same (HTTP→HTTP, HTTPS→HTTPS), but isn't sent to a less secure destination (HTTPS→HTTP).
+- SOLUTION: I decidede to scrap the LoginForm.js file and retype it over again. That fixed the issue.
 
 

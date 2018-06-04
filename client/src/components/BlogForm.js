@@ -11,7 +11,7 @@ export default class BlogForm extends Component {
         text: '',
         img_url: '',
         location: '',
-        user_id: this.props.user.id
+        // user_id: this.props.user.id
       }, props.blog)
     }
   }
@@ -35,13 +35,10 @@ export default class BlogForm extends Component {
     });
   }
   render() {
-    console.log(this.state.blog);
-    console.log(this.props.user);
     const { title, text, id, img_url} = this.state.blog
     return (
       <div className="blog-form-div">
 
-        <h1>{id ? 'Edit this ' : 'Post a '} blog {this.props.user.username}!</h1>
         <form onSubmit={this.handleSubmit.bind(this)} className={id ? 'edit' : 'create'}>
           {this.state.redirectHome && <Redirect to='/api/blogs' />}
           <label>
@@ -62,7 +59,7 @@ export default class BlogForm extends Component {
 
           <label>
             <h3>Image URL</h3>
-            <textarea rows='2' cols ='70'
+            <textarea rows='3' cols ='70'
               name='img_url'
               value={img_url}
               onChange={this.handleChange.bind(this)} />
