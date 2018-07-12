@@ -4,6 +4,7 @@
 
 h2 {
   text-align: center;
+  text-decoration: underline;
 }
 
 .container {
@@ -18,7 +19,7 @@ h2 {
 /* MEDIA QUERY */
 
 /* IPHONE WIDTH */
-@media screen (max-width: 414px) {
+@media screen (min-width: 414px) {
 .intro {
    column-count: 2;
 }
@@ -61,9 +62,9 @@ nav {
   padding: 20px 0;
   margin: 0;
   margin-bottom: 20px;*/
-  float: right;
+  float:  center;
   text-align: right;
-  margin-right: 25px;
+  margin-right: 100px;
   margin-bottom: 20px;
   border-radius: 10px;
 }
@@ -102,6 +103,20 @@ ul li:hover a {
 
 }*/
 
+/* Register and Login Form*/
+
+.login-form {
+  height: 100%;
+  margin: 100px;
+}
+
+.register-form {
+  height: 100%;
+  margin: 100px;
+}
+
+/* End Register and Login Form */
+
 .intro {
   width: 500px ;
   margin: auto;
@@ -138,9 +153,16 @@ h3 .blog-form {
   margin-top: 10px;
 }
 
+.post-img {
+  width: fit-content;
+  margin: auto;
+}
+
 .post {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  border: 1px solid #999;
+  border-bottom: 1px solid #000;
   border-radius: 10px;
   background: #fff;
   columns: 150px;
@@ -162,17 +184,14 @@ p .desc {
   width: 300px;
 }
 
-.post-img {
-  width: 100%;
-}
-
 h3 {
   font-size: 20px;
+/*  text-decoration: none;*/
 
 }
 
-label {
-
+h3 .title {
+  background-color: lightgray;
 }
 
 .button {
@@ -186,11 +205,6 @@ label {
   font-size: 15px;
   height: 30px;
   width: 150px;
-}
-
-.login-form {
-  height: 100%;
-  margin: 100px;
 }
 
 p {
@@ -211,10 +225,12 @@ p {
 }
 
 .footer {
+  margin-top: 50px;
   width: 50%;
   text-align: center;
   padding-top: 30px;
   float: left;
+  /*display: none;*/
 }
 
 .footer p {

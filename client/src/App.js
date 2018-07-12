@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import jwt from 'jwt-js';
 import Nav from './components/Header';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Home from './components/Home';
 import Blogs from './components/Blogs';
 import Blog from './components/Blog';

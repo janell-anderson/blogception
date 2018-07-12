@@ -35,7 +35,7 @@ export default class RegisterForm extends Component {
 
   render() {
     return(
-      <div className="form"><h2>Register</h2>
+      <div className="register-form"><h2>Register</h2>
         <form onSubmit={this.handleSubmit} className="" method="post">
           {this.state.redirectHome && <Redirect to='/' />}
           <label htmlFor="username">

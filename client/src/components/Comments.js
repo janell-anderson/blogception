@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import CommentsList from './CommentsList';
 import CommentsForm from './CommentsForm';
 
@@ -19,6 +19,7 @@ constructor(props) {
 
     return(
       <div className="">
+        <CommentsList />
         <CommentsForm />
       </div>
     )
