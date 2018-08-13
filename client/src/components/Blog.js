@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Comments from './Comments';
+// import Comments from './Comments';
 // import CommentsList from './CommentsList';
 
 export default class Blog extends Component {
@@ -44,7 +44,7 @@ export default class Blog extends Component {
           <button className='button' onClick={this.props.del}> Delete </button>
         </Link>
 
-        <Comments />
+        
       </div>
     )
   }

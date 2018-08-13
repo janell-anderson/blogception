@@ -30,9 +30,9 @@ export default class CommentsForm extends Component {
     e.preventDefault();
     // func=(this.state.blog);
     // window.location.reload();
-  //   this.setState({
-  //     text: ''
-  //   });
+    // this.setState({
+    //   text: ''
+    // });
   }
 
   render() {

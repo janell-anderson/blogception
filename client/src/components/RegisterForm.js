@@ -63,7 +63,7 @@ export default class RegisterForm extends Component {
           <label htmlFor="password">
             <input
               placeholder="Create a password"
-              type="text"
+              type="password"
               onChange={this.handleInputChange}
               value={this.state.password}
               name="password"
