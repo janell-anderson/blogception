@@ -5,30 +5,30 @@ const respController = require('../controllers/responseController');
 commRouter.route('/')
   .get(
       commentController.getAll,
-      respController.sendOkResp,
+      respController.sendOkRespComments,
       respController.sendErrResp);
 
 // the route for the comment form
 commRouter.route('/new')
   .post(
     commentController.create,
-    respController.sendOkResp,
+    respController.sendOkRespComments,
     respController.sendErrResp);
 
 commRouter.route('/:id')
   .get(
     commentController.getOne,
-    respController.sendOkResp,
+    respController.sendOkRespComments,
     respController.sendErrResp)
 
   .delete(
     commentController.destroy,
-    respController.sendOkResp,
+    respController.sendOkRespComments,
     respController.sendErrResp)
 
   .put(
     commentController.update,
-    respController.sendOkResp,
+    respController.sendOkRespComments,
     respController.sendErrResp);
 
 module.exports = commRouter;

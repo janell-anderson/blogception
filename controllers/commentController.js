@@ -1,9 +1,11 @@
 const commDb = require('../models/comment');
 
 function getAll(req, res, next) {
+  console.log("Found all the comments");
   commDb.getAll()
     .then(data => {
       res.locals.comments = data;
+      console.log(data);
       next();
     }).catch(next);
 }

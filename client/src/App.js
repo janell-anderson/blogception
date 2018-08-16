@@ -42,7 +42,7 @@ export default class App extends Component {
   }
 
   fetchComments() {
-    fetch('/api/comments')
+    fetch('/api/comment')
       .then(resp => {
         if(!resp.ok) {
           throw Error('oops: ', resp.message);
