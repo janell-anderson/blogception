@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import Comments from './Comments';
+import Comments from './Comments';
 // import CommentsList from './CommentsList';
 
 export default class Blog extends Component {
@@ -26,7 +26,7 @@ export default class Blog extends Component {
 
   render() {
     const { title, text, img_url, id } = this.state.blog;
-
+    console.log("Hiiiiiii",this.props);
     return(
       <div className="">
         <img src={img_url} alt='' className=''/>
@@ -44,7 +44,7 @@ export default class Blog extends Component {
           <button className='button' onClick={this.props.del}> Delete </button>
         </Link>
 
-        
+        <Comments comment = {this.props.comment}/>
       </div>
     )
   }

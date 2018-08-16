@@ -29,7 +29,9 @@ export default class App extends Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
   // we will be fetching from the posts database
+
   fetchBlogs() {
+    console.log("hello i'm a fetchBlogs")
     fetch('/api/blogs')
       .then(resp => {
         if(!resp.ok) {
@@ -39,9 +41,13 @@ export default class App extends Component {
     }).then(data => this.setState ({
       blogs: data.data
     })).catch(err => console.log(`error: ${err}`))
+    //
+    this.fetchComments();
   }
 
+
   fetchComments() {
+    console.log("hello i'm fetchComments")
     fetch('/api/comment')
       .then(resp => {
         if(!resp.ok) {
@@ -49,7 +55,7 @@ export default class App extends Component {
         }
         return resp.json();
     }).then(data => this.setState ({
-      blogs: data.data
+      comments: data.data
     })).catch(err => console.log(`error: ${err}`))
   }
 
@@ -66,6 +72,7 @@ export default class App extends Component {
 
   // a function for creating a blog post
   createBlog(blog) {
+    console.log("hello i'm fetchComments")
     fetch('/api/blogs/new', {
       method: 'POST',
       body: JSON.stringify(blog),
@@ -264,19 +271,20 @@ export default class App extends Component {
 
   componentDidMount() {
     this.fetchBlogs();
-    this.fetchComments();
+    // this.fetchComments();
     this.checkToken();
   }
 
   render() {
+    console.log(this.state);
     return(
       <div className="App">
           <Nav user={this.state.currentUser}/>
 
         <Switch>
 
-         <Route exact path='/api/blogs/new'
-          component={() => (
+         <Route exact path='/api/blogs/new' component={() => (
+
             <CreateBlog
               onSubmit={this.createBlog.bind(this)}
               user={this.state.currentUser}
@@ -287,6 +295,7 @@ export default class App extends Component {
             /> )} />
 
           <Route exact path='/api/blogs/:id/edit' component={(props) => (
+
             <EditBlog
               {...props}
               blog={this.findBlog(props.match.params.id)}
@@ -295,14 +304,17 @@ export default class App extends Component {
             /> )} />
 
           <Route path='/api/blogs/:id' component={(props) => (
+
             <Blog
               {...props}
               blog={this.findBlog(props.match.params.id)}
               del={() => this.handleDelete(props.match.params.id)}
               user={this.state.currentUser}
+              comments={this.state.comments}
             /> )} />
 
           <Route exact path='/api/blogs' component={(props) => (
+             console.log("blogs"),
             <Blogs
               {...props}
               blogs={this.state.blogs}

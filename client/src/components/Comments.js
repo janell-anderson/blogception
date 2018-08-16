@@ -13,23 +13,22 @@ constructor(props) {
     }
   }
 
+
   render() {
-    // const { text } = this.state.comment
-    // console.log(this.props.text);
+    console.log(this.props);
+    const list = 
+    this.props.comment.map(comment => (
+      <CommentsList text = {comment.text}/>
+      ))
 
     return(
       <div className="">
-        <CommentsList />
+        <h3>Comment List</h3>
+        {list}
         <CommentsForm />
       </div>
     )
   }
 }
 
-        // {this.props.comments.map(comment => (
-        //   <div key={comment.id} className="">
-        //       <div key={comment.id}>
-        //         <p>{comment.text}</p>
-        //         </div>
-        //       </div>
-        //   ))}
+
