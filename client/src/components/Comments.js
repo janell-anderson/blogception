@@ -16,6 +16,7 @@ constructor(props) {
 
   render() {
     console.log(this.props);
+    console.log("Hi i am trying to map comments");
     const list = 
     this.props.comment.map(comment => (
       <CommentsList text = {comment.text}/>
