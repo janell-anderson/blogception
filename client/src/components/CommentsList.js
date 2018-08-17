@@ -1,22 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class CommentsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    comment: Object.assign({
-      text: ''
-      }, props.comment)
-    }
-  }
-
-  render() {
-    const { text } = this.state.comment;
+export default function CommentsList (props) {
     return(
       <div>
-        <h3>Comment List</h3>
-          {this.props.text}
+          {props.text}
       </div>
     )
   }
-}
+
