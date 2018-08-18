@@ -89,4 +89,10 @@ Today was also a slow day. Tried to do front-end crud and create a form but was 
                 -This is the user agent's default behavior if no policy is specified. The URL is sent as a referrer when the protocol security level stays the same (HTTP→HTTP, HTTPS→HTTPS), but isn't sent to a less secure destination (HTTPS→HTTP).
 - SOLUTION: I decidede to scrap the LoginForm.js file and retype it over again. That fixed the issue.
 
+## Most Recent
+- When trying to get into one blog post, I recieve and error below. So figuring out how to fix it.
+   - TypeError: Cannot read property 'map' of undefined.
+- Troubleshooting the issue with mapping comments. Found that the way I am mapping the comments is crashing the Get One blog(id).
+
+
 
