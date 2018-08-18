@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import CommentsList from './CommentsList';
 import CommentsForm from './CommentsForm';
 
+// export default class Comments extends Component {
 export default class Comments extends Component {
 constructor(props) {
     super(props)

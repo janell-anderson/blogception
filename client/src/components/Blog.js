@@ -44,8 +44,9 @@ export default class Blog extends Component {
           <button className='button' onClick={this.props.del}> Delete </button>
         </Link>
 
-        <Comments comment = {this.props.comment}/>
+        
       </div>
     )
   }
 }
+// <Comments comment = {this.props.comment}/>

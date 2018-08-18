@@ -45,6 +45,7 @@ export default class App extends Component {
     this.fetchComments();
   }
 
+  // fetching for comments
 
   fetchComments() {
     console.log("hello i'm fetchComments")
