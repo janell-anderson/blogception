@@ -1,9 +1,18 @@
 const db = require('../config/connection');
 
+// OLD GET ONE FUNCTION
+// function getOne(id) {
+//   return db.one(`
+//     SELECT * FROM comments
+//     WHERE id = $1
+//     `, id)
+// }
+
+// new one returning comments belonging to a certain post. You will have to make a new "get one" if you want to add future functionality to comments like allow the user who wrote them to edit or delete them. For now this is returning all comments belonging to a certain post. 
 function getOne(id) {
-  return db.one(`
+  return db.any(`
     SELECT * FROM comments
-    WHERE id = $1
+    WHERE post_id = $1
     `, id)
 }
 
