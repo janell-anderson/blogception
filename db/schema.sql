@@ -1,5 +1,5 @@
--- CREATE DATABASE blog_db;
--- \c blog_db
+CREATE DATABASE blog_db;
+\c blog_db
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS posts CASCADE;
@@ -24,7 +24,5 @@ CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   text TEXT NOT NULL,
   post_id INTEGER REFERENCES posts (id) ON DELETE CASCADE,
-  comment_id INTEGER REFERENCES users (id)
+  user_id INTEGER REFERENCES users (id)
 );
-
-

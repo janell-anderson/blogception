@@ -41,32 +41,33 @@ export default class App extends Component {
     }).then(data => this.setState ({
       blogs: data.data
     })).catch(err => console.log(`error: ${err}`))
-    //
-    this.fetchComments();
+    // REMOVED THIS FROM HERE ---> no need to fetch for comments when you're starting the project. You only need to fetch comments when you go to a blog post, do away with any extra API requests.
+    // this.fetchComments();
   }
 
-  // fetching for comments
+  // Call the fetchComments inside the findBlog function
+  findBlog(id) {
+    const blog = this.state.blogs.filter(t => (t.id === parseInt(id, 10)));
+    this.fetchComments(id);
+    return blog[0];
+  }
 
-  fetchComments() {
-    console.log("hello i'm fetchComments")
-    fetch('/api/comment')
-      .then(resp => {
-        if(!resp.ok) {
-          throw Error('oops: ', resp.message);
-        }
-        return resp.json();
+  // FETCH FOR COMMENTS WHEN YOU FETCH A BLOG POST.
+  // You only need to fetch comments belonging to a specific post. No need for extra information, so when you make the fetch just search by the post_id
+  fetchComments(id) {
+    fetch(`/api/comment/${id}`)
+    .then(resp => {
+      if(!resp.ok) {
+        throw Error('oops: ', resp.message);
+      }
+      return resp.json();
     }).then(data => this.setState ({
       comments: data.data
     })).catch(err => console.log(`error: ${err}`))
   }
 
-  // finding a blog by a specific id
-  findBlog(id) {
-    const blog = this.state.blogs.filter(t => (t.id === parseInt(id, 10)));
-    return blog[0];
-  }
-
   findComment(id) {
+    console.log("in the find comment")
     const comment = this.state.comments.filter(s => (s.id === parseInt(id, 10)));
     return comment[0];
   }
